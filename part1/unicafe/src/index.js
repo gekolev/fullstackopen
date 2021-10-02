@@ -44,7 +44,6 @@ const Statistics = ({clicks}) => {
     )
 }
 
-
 const Button = ({ onClick, text }) => (
   <button onClick={onClick}>
     {text}
@@ -52,27 +51,26 @@ const Button = ({ onClick, text }) => (
 )
 
 const App = () => {
-  // save clicks of each button to own state
   const [clicks, setClicks] = useState({
     good: 0, neutral: 0, bad: 0
   })
 
-  const handleGoodClick = () =>
+  const GoodClick = () =>
     setClicks({...clicks, good: clicks.good + 1})
 
-  const handleNeutralClick = () =>
+  const NeutralClick = () =>
     setClicks({...clicks, neutral: clicks.neutral + 1})
 
-  const handleBadClick = () =>
+  const BadClick = () =>
     setClicks({...clicks, bad: clicks.bad + 1})
 
 
   return (
     <div>
       <Header name="Customer feedback" />
-      <Button onClick={handleGoodClick} text='good' />
-      <Button onClick={handleNeutralClick} text='neutral' />
-      <Button onClick={handleBadClick} text='bad' />
+      <Button onClick={GoodClick} text='good' />
+      <Button onClick={NeutralClick} text='neutral' />
+      <Button onClick={BadClick} text='bad' />
       <Header name="Statistics" />
       <Statistics clicks={clicks} />
     </div>
